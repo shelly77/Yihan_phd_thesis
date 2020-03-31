@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#00dbde" />
+    <meta name="theme-color" content="#1d8fe1" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
       rel="stylesheet"
@@ -30,7 +30,7 @@
     }
     h1,
     .hl {
-      font-size: 2.1rem;
+      font-size: 2.2rem;
     }
     h2 {
       font-size: 1.7rem;
@@ -112,6 +112,80 @@
       flex-direction: column;
     }
 
+    #toPageTop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 5.5rem;
+      width: 5.5rem;
+      position: fixed;
+      text-align: center;
+      right: 5.5rem;
+      bottom: 5.5rem;
+      cursor: pointer;
+      border-radius: 50%;
+      border-width: 0.0625rem;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(0, 0, 0, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    #toPageTop:hover {
+      color: rgba(255, 255, 255, 0.9);
+      border-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .animation {
+      transition: all 0.6s;
+      animation-duration: 1s;
+    }
+    .fadeIn {
+      animation-name: fadeInBottom;
+      visibility: visible;
+    }
+    .fadeOut {
+      animation-name: fadeOutBottom;
+      visibility: hidden;
+    }
+
+    @keyframes fadeInBottom {
+      from {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      to {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    @keyframes fadeOutBottom {
+      from {
+        visibility: visible;
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(100%);
+      }
+    }
+
+    hr {
+      border-color: rgba(255, 255, 255, 0.1);
+      margin-block-start: 0;
+      margin-block-end: 0;
+      border-width: 0.03rem;
+    }
+
+    footer {
+      color: white;
+      padding: 3rem 1rem;
+      background-color: #3f3f3f;
+      background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    }
+
     @media (min-width: 40rem) {
       .pt {
         padding-top: 2rem;
@@ -132,6 +206,12 @@
       }
       .btn {
         padding: 0.4rem 1.6rem;
+      }
+      #toPageTop {
+        right: 3rem;
+        bottom: 3rem;
+        height: 3rem;
+        width: 3rem;
       }
     }
   </style>
@@ -188,6 +268,17 @@
         allowfullscreen
       ></iframe>
     </div>
+    <div></div>
+    <div id="toPageTop" class="animation">
+      🔺
+    </div>
+    <hr />
+    <footer>
+      <div>
+        &copy; Copyright 2020
+        <a href="https://cao-yihan.github.io">Cao Yihan</a>
+      </div>
+    </footer>
   </body>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -214,7 +305,33 @@
       document.getElementsByTagName("iframe")[0].width = mw;
       document.getElementsByTagName("iframe")[1].width = mw;
     };
+
     window.onresize = resizeEl;
     resizeEl();
+
+    const handleScroll = () => {
+      showToTopBtn(window.scrollY > window.innerHeight / 5);
+    };
+
+    const showToTopBtn = show => {
+      if (
+        !document
+          .getElementById("toPageTop")
+          .classList.contains(show === true ? "fadeIn" : "fadeOut")
+      ) {
+        document
+          .getElementById("toPageTop")
+          .classList.remove("fadeOut", "fadeIn");
+        document
+          .getElementById("toPageTop")
+          .classList.add(show === true ? "fadeIn" : "fadeOut");
+      }
+    };
+
+    document.getElementById("toPageTop").onclick = () => {
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("scroll", handleScroll, true);
+    handleScroll();
   </script>
 </html>
