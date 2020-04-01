@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Yihan Cao's peronal web page">
     <meta name="theme-color" content="#1d8fe1" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
@@ -87,12 +88,9 @@
       }
       .videoWrapper {
         background-color: black;
-        background-image: radial-gradient(black, #485563);
+        background-image: radial-gradient(#434343, black);
         height: 100%;
         width: 100%;
-      }
-      .bg-b {
-        background-image: radial-gradient(#434343, black);
       }
       .pt {
         padding-top: 1rem;
@@ -182,7 +180,7 @@
         color: white;
         padding: 3rem 1rem;
         background-color: #3f3f3f;
-        background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+        background-image: linear-gradient(135deg, black, #434343, #29323c);
       }
 
       @media (min-width: 40rem) {
@@ -198,11 +196,6 @@
         .pbm {
           padding-bottom: 1rem;
         }
-        /* .box {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      } */
         .btn {
           padding: 0.4rem 1.6rem;
         }
@@ -227,40 +220,36 @@
         <div class="pbm ptm">
           <h3 class="pbm ptm">Thesis</h3>
           <div class="box">
-            <a class="btn" download href="./files/PhD_Thesis_Yihan.pdf"
-              >download pdf</a
+            <a class="btn" href="./files/PhD_Thesis_Yihan.pdf"
+              >open pdf</a
             >
           </div>
         </div>
         <div class="pbm ptm">
           <h3 class="pbm ptm">Thesis Presentation</h3>
           <div class="box">
-            <!-- <a class="btn" download href="./files/presentation_of_thesis.ppsx"
-              >download ppt</a
-            > -->
             <a class="btn" href="#phd-presentation">watch video</a>
           </div>
         </div>
 
         <div class="pbm ptm">
-          <h3 class="pbm ptm">Trial lecture</h3>
+          <h3 class="pbm ptm">Trial Lecture</h3>
           <div class="box">
-            <!-- <a class="btn" download href="./trial_lecture.ppsx">download ppt</a> -->
             <a class="btn" href="#trial-lecture">watch video</a>
           </div>
         </div>
       </div>
     </div>
     <div id="phd-presentation" class="container videoWrapper">
-      <iframe
+      <iframe title="phd presentation"
         src="https://www.youtube.com/embed/56qz-xmRlqY"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
     </div>
-    <div id="trial-lecture" class="container videoWrapper bg-b">
-      <iframe
+    <div id="trial-lecture" class="container videoWrapper">
+      <iframe title="trial lecture"
         src="https://www.youtube.com/embed/hAL10rB6kR4"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
